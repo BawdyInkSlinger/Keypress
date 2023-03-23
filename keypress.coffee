@@ -383,6 +383,7 @@ class keypress.Listener
         return keys_remain
 
     _key_down: (key, e) ->
+        console.log('_key_down', key, e)
         # Check if we're holding shift
         shifted_key = _convert_to_shifted_key key, e
         key = shifted_key if shifted_key

@@ -527,6 +527,7 @@
 
     _key_down(key, e) {
       var combo, combos, event_mod, i, l, len, len1, m, mod, n, potential, potential_combos, ref, sequence_combo, shifted_key;
+      console.log('_key_down', key, e);
       // Check if we're holding shift
       shifted_key = _convert_to_shifted_key(key, e);
       if (shifted_key) {
