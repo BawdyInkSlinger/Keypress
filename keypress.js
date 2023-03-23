@@ -448,6 +448,7 @@
     // Catching Combos
     _receive_input(e, is_keydown) {
       var key, ref;
+      console.log('_receive_input', e, is_keydown);
       // If we're not capturing input, we should
       // clear out _keys_down for good measure
       if (this._prevent_capture) {

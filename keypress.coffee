@@ -333,6 +333,7 @@ class keypress.Listener
     # Catching Combos
 
     _receive_input: (e, is_keydown) ->
+        console.log('_receive_input', e, is_keydown)
         # If we're not capturing input, we should
         # clear out _keys_down for good measure
         if @_prevent_capture
