@@ -537,6 +537,7 @@
       // Add the key to sequences
       this._add_key_to_sequence(key, e);
       sequence_combo = this._get_sequence(key);
+      console.log('sequence_combo', sequence_combo);
       if (sequence_combo) {
         this._fire("keydown", sequence_combo, e);
       }
@@ -576,6 +577,7 @@
       // Find which combos we have pressed or might be working towards, and prevent default
       combos = this._get_active_combos(key);
       potential_combos = this._get_potential_combos(key);
+      console.log('combos', combos, 'potential_combos', potential_combos);
       for (m = 0, len = combos.length; m < len; m++) {
         combo = combos[m];
         console.log('combo', combo, 'potential_combos', potential_combos);
@@ -588,6 +590,7 @@
         }
       }
       if (indexOf.call(this._keys_down, key) < 0) {
+        console.log('key not in @_keys_down', key, '@_keys_down', this._keys_down);
         this._keys_down.push(key);
       }
     }

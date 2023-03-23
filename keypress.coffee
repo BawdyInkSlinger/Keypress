@@ -392,6 +392,7 @@ class keypress.Listener
         # Add the key to sequences
         @_add_key_to_sequence key, e
         sequence_combo = @_get_sequence key
+        console.log('sequence_combo', sequence_combo)
         @_fire("keydown", sequence_combo, e) if sequence_combo
 
         # We might have modifier keys down when coming back to
@@ -415,6 +416,7 @@ class keypress.Listener
         # Find which combos we have pressed or might be working towards, and prevent default
         combos = @_get_active_combos key
         potential_combos = @_get_potential_combos key
+        console.log('combos', combos, 'potential_combos', potential_combos)
         for combo in combos
             console.log('combo', combo, 'potential_combos', potential_combos)
             @_handle_combo_down combo, potential_combos, key, e
@@ -423,6 +425,7 @@ class keypress.Listener
                 @_prevent_default e, potential.prevent_default
 
         if key not in @_keys_down
+            console.log('key not in @_keys_down', key, '@_keys_down', @_keys_down)
             @_keys_down.push key
         return
 
