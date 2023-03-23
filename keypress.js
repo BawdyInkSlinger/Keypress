@@ -396,10 +396,12 @@
 
     _get_sequence(key) {
       var combo, i, j, l, len, m, match, n, ref, ref1, ref2, seq_key, sequence;
-      ref = this._registered_combos;
       // Compare _sequence to all combos
+      console.log('@_registered_combos', this._registered_combos, key);
+      ref = this._registered_combos;
       for (l = 0, len = ref.length; l < len; l++) {
         combo = ref[l];
+        console.log('combo.is_sequence', combo, key);
         if (!combo.is_sequence) {
           continue;
         }
@@ -412,6 +414,7 @@
             }
             return seq_key !== "shift";
           })).slice(-j);
+          console.log('combo.keys.length is sequence.length', combo.keys.length, sequence.length, key);
           if (combo.keys.length !== sequence.length) {
             continue;
           }
@@ -435,6 +438,7 @@
             }
           }
         }
+        console.log('match', match, key);
         if (match) {
           if (combo.is_exclusive) {
             this._sequence = [];

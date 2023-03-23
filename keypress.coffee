@@ -303,7 +303,9 @@ class keypress.Listener
 
     _get_sequence: (key) ->
         # Compare _sequence to all combos
+        console.log('@_registered_combos', @_registered_combos, key)
         for combo in @_registered_combos
+            console.log('combo.is_sequence', combo, key)
             continue unless combo.is_sequence
             for j in [1..@_sequence.length]
                 # As we are traversing backwards through the sequence keys,
@@ -312,6 +314,7 @@ class keypress.Listener
                     return true if "shift" in combo.keys
                     return seq_key isnt "shift"
                 ).slice -j
+                console.log('combo.keys.length is sequence.length', combo.keys.length, sequence.length, key)
                 continue unless combo.keys.length is sequence.length
                 for i in [0...sequence.length]
                     seq_key = sequence[i]
@@ -324,6 +327,7 @@ class keypress.Listener
                     else
                         match = false
                         break
+            console.log('match', match, key)
             if match
                 if combo.is_exclusive
                     @_sequence = []
