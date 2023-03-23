@@ -576,6 +576,7 @@
       potential_combos = this._get_potential_combos(key);
       for (m = 0, len = combos.length; m < len; m++) {
         combo = combos[m];
+        console.log('combo', combo, 'potential_combos', potential_combos);
         this._handle_combo_down(combo, potential_combos, key, e);
       }
       if (potential_combos.length) {

@@ -414,6 +414,7 @@ class keypress.Listener
         combos = @_get_active_combos key
         potential_combos = @_get_potential_combos key
         for combo in combos
+            console.log('combo', combo, 'potential_combos', potential_combos)
             @_handle_combo_down combo, potential_combos, key, e
         if potential_combos.length
             for potential in potential_combos
@@ -880,7 +881,7 @@ _keycode_dictionary =
     108 : "num_enter"
     109 : "num_subtract"
     110 : "num_decimal"
-    111 : "num_divide" 
+    111 : "num_divide"
     112 : "f1"
     113 : "f2"
     114 : "f3"
